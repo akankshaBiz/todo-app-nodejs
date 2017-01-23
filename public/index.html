@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="./javascripts/appRoute.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body ng-app="myApp" >
+    <div ng-controller="myCtrl" class="container mainDiv">
+
+        <div class=" header1">
+           ****MY TODO LIST***** <span>{{todo.length}}</span>
+        </div>
+        <div >
+            <ul>
+                <li ng-repeat="todos in todo">
+                    <div class="row">
+                        <div class="col-sm-9">  {{todos.text}}</div>
+                        <div class="col-sm-3"> <span class="remove" style="cursor:pointer;" ng-click="removeItem(todos._id)">x</span></div>
+                     </div>
+                </li>
+            </ul>
+        </div>
+        <div >
+            <input type="text" placeholder="Add Items Here" ng-model="formdata.text">
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="addItem()">Add</button>
+            <p>{{errortext}}</p>
+        </div>
+    </div>
+</body>
+</html>
